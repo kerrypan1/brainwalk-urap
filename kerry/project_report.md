@@ -1,5 +1,7 @@
 # BRAINWALK VLM methods and results
 
+(also in project doc)
+
 ## Dataset
 
 - **91 fast-walk BRAINWALK videos from 46 patients**
