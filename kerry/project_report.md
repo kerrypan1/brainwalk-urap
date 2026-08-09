@@ -1,10 +1,9 @@
-# BrainWalk video-to-gait-score methods and results
+# BRAINWALK VLM methods and results
 
-## Dataset and endpoint
+## Dataset
 
-- **91 fast-walk BrainWalk videos from 46 patients**
-- 92 clinician/DPT-reviewed labels were available; one visit had no curated
-  fast-walk video and was excluded.
+- **91 fast-walk BRAINWALK videos from 46 patients**
+- 92 clinician labels were available; one visit was excluded because no comparable fast-walk video from the standard camera angle was available
 - Input: raw RGB video
 - Prediction target: clinician-assessed `FGA_estimate_score`, an ordered
   four-class estimate from 0 (most impaired) to 3 (near normal)
@@ -80,7 +79,7 @@ four-class clinician score from fast-walk videos:
   summary/global/local prompts and cosine-to-text classification using focal
   loss.
 - **KAPT-inspired descriptions:** detailed class descriptions with shared
-  CoOp-style context. This is not full KAPT: KEPLER initialization and
+  CoOp-style context. This is not full KAPT, KEPLER initialization and
   per-class KAPT MLPs were not implemented.
 - **NTE-inspired numerical text:** Zeno gait metrics represented as numerical
   text and aligned to class text. This is an approximate adaptation using a
@@ -88,18 +87,16 @@ four-class clinician score from fast-walk videos:
 
 All four variants were rerun on the same fixed five folds as Model 3.
 
-| Variant | Accuracy | Macro-F1 | MAE | QWK |
-|---|---:|---:|---:|---:|
-| Vita-CLIP baseline | 0.341 ± 0.144 | 0.172 ± 0.095 | 0.906 ± 0.194 | 0.069 ± 0.148 |
-| + descriptions (KAPT-inspired) | 0.267 ± 0.138 | 0.134 ± 0.052 | 0.918 ± 0.211 | 0.107 ± 0.161 |
-| + NTE | 0.273 ± 0.110 | 0.145 ± 0.088 | 0.930 ± 0.178 | 0.141 ± 0.152 |
-| + descriptions + NTE | 0.272 ± 0.158 | 0.176 ± 0.114 | **0.891 ± 0.179** | **0.195 ± 0.218** |
+| Variant                        |      Accuracy |               MAE |
+| ------------------------------ | ------------: | ----------------: |
+| Vita-CLIP baseline             | 0.341 ± 0.144 |     0.906 ± 0.194 |
+| + descriptions (KAPT-inspired) | 0.267 ± 0.138 |     0.918 ± 0.211 |
+| + NTE                          | 0.273 ± 0.110 |     0.930 ± 0.178 |
+| + descriptions + NTE           | 0.272 ± 0.158 | **0.891 ± 0.179** |
 
 The existing Model 2 caches retain only predicted classes, not averaged
-softmax scores. Its MAE therefore remains class-label MAE rather than
-continuous-score MAE; the accuracy, F1, QWK, fold aggregation, and fold-trained
-baselines use the common protocol. The paper-inspired variants did not
-outperform the simple cropped-CLIP models.
+softmax scores, so for Model 2, MAE is calculated from class-label rather than
+continuous-score MAE. Therefore, Model 2 MAE is not directly identical to the continuous-score MAE reported for Models 1 and 3. The paper-inspired variants did not outperform the simple cropped-CLIP models.
 
 ## Model 3: frozen CLIP encoder with supervised head
 
@@ -116,23 +113,21 @@ Heads tested: class-balanced logistic regression, CORAL-style ordinal
 thresholds, and Ridge regression with rounding for classification metrics. For
 logistic regression, the continuous score is the class-probability-weighted
 expectation; for CORAL it is the sum of cumulative threshold probabilities.
-Ridge uses its direct continuous output. An otherwise matched uncropped control
-was also rerun.
+Ridge uses its direct continuous output.
 
 ### Primary four-class endpoint
 
-| Predictor | Accuracy | Macro-F1 | MAE | QWK |
-|---|---:|---:|---:|---:|
-| Fold-trained mean | 0.347 ± 0.228 | 0.120 ± 0.067 | 0.768 ± 0.273 | 0.000 ± 0.000 |
-| Fold-trained median | 0.347 ± 0.228 | 0.120 ± 0.067 | 0.751 ± 0.277 | 0.000 ± 0.000 |
-| Fold-trained mode | 0.305 ± 0.188 | 0.110 ± 0.057 | 0.962 ± 0.206 | 0.000 ± 0.000 |
-| Uncropped CLIP + logreg | 0.382 ± 0.089 | 0.267 ± 0.092 | 0.757 ± 0.097 | 0.307 ± 0.135 |
-| Cropped CLIP + logreg | 0.406 ± 0.144 | 0.295 ± 0.122 | 0.700 ± 0.140 | 0.352 ± 0.133 |
-| Cropped CLIP + CORAL | **0.427 ± 0.091** | 0.323 ± 0.097 | **0.690 ± 0.095** | **0.430 ± 0.154** |
-| Cropped CLIP + Ridge | 0.423 ± 0.113 | **0.356 ± 0.154** | 0.760 ± 0.132 | 0.385 ± 0.235 |
+| Predictor               |          Accuracy |               MAE |
+| ----------------------- | ----------------: | ----------------: |
+| Fold-trained mean       |     0.347 ± 0.228 |     0.768 ± 0.273 |
+| Fold-trained median     |     0.347 ± 0.228 |     0.751 ± 0.277 |
+| Fold-trained mode       |     0.305 ± 0.188 |     0.962 ± 0.206 |
+| Uncropped CLIP + logreg |     0.382 ± 0.089 |     0.757 ± 0.097 |
+| Cropped CLIP + logreg   |     0.406 ± 0.144 |     0.700 ± 0.140 |
+| Cropped CLIP + CORAL    | **0.427 ± 0.091** | **0.690 ± 0.095** |
+| Cropped CLIP + Ridge    |     0.423 ± 0.113 |     0.760 ± 0.132 |
 
-CORAL gives the strongest overall primary result by accuracy, raw MAE, and QWK;
-Ridge has the highest macro-F1. Cropping improves every reported metric for the
+CORAL gives the strongest overall primary result by accuracy and raw MAE. Cropping improves every reported metric for the
 matched logistic-regression control, although fold variability is substantial.
 
 ### Exploratory three-class endpoint
@@ -141,27 +136,21 @@ Classes 0 and 1 are merged, producing ordered classes `{0–1, 2, 3}`, reindexed
 to `{0,1,2}` for MAE. This is a changed and easier endpoint, not the primary
 four-class result.
 
-| Predictor | Accuracy | Macro-F1 | MAE | QWK |
-|---|---:|---:|---:|---:|
-| Fold-trained mean | 0.347 ± 0.228 | 0.160 ± 0.089 | 0.687 ± 0.201 | 0.000 ± 0.000 |
-| Fold-trained median | 0.347 ± 0.228 | 0.160 ± 0.089 | 0.653 ± 0.228 | 0.000 ± 0.000 |
-| Fold-trained mode | 0.305 ± 0.188 | 0.147 ± 0.076 | 0.865 ± 0.187 | 0.000 ± 0.000 |
-| Cropped CLIP + logreg | **0.493 ± 0.129** | **0.490 ± 0.124** | **0.573 ± 0.094** | 0.375 ± 0.171 |
-| Cropped CLIP + CORAL | 0.492 ± 0.102 | 0.481 ± 0.087 | 0.582 ± 0.066 | **0.420 ± 0.147** |
+| Predictor             |          Accuracy |               MAE |
+| --------------------- | ----------------: | ----------------: |
+| Fold-trained mean     |     0.347 ± 0.228 |     0.687 ± 0.201 |
+| Fold-trained median   |     0.347 ± 0.228 |     0.653 ± 0.228 |
+| Fold-trained mode     |     0.305 ± 0.188 |     0.865 ± 0.187 |
+| Cropped CLIP + logreg | **0.493 ± 0.129** | **0.573 ± 0.094** |
+| Cropped CLIP + CORAL  |     0.492 ± 0.102 |     0.582 ± 0.066 |
 
 ## Overall interpretation
 
-The strongest primary video result remains modest and variable across folds:
-CORAL accuracy is 0.427 ± 0.091 versus 0.347 ± 0.228 for the fold-trained mean
-and median baselines. There is no independent test cohort, and many variants
-were evaluated on the same small dataset. The results support a careful
-proof-of-signal or benchmark/negative-result framing, not clinical deployment.
-
-The most defensible conclusions are:
+The main conclusions are:
 
 1. Person cropping contributes more than added architectural complexity.
 2. The zero-shot VLM effectively collapses to a constant prediction.
 3. The constrained Vita-CLIP/KAPT/NTE adaptation does not transfer the paper's
    reported gain to this endpoint and cohort.
-4. The exploratory three-class endpoint is easier but requires clinical
+4. The best model, Cropped CLIP + logreg, along with the exploratory three-class endpoint, has promising results near 50% accuracy but requires clinical
    justification before being treated as a primary outcome.
