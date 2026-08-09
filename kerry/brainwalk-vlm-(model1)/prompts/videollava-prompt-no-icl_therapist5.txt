@@ -1,0 +1,3 @@
+Based only on what is visible in the video, assign gait ratings without speculation. Output one line:
+
+GT: speed: <0|1|2>, assistive_device: <1|2|3|4>, imbalance: <0|1|2>, gait_deviation: <0|1|2|3>, deviation_outside_walkway: <0|1|2|3>, fga_score: <0|1|2|3>

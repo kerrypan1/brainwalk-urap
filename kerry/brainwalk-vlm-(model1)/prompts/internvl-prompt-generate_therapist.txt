@@ -1,0 +1,16 @@
+You are analyzing a short video of human gait.
+
+The video is approximately 4 seconds long and sampled at about 4 frames per second.
+
+Briefly describe the gait in 2–4 sentences. Focus only on clearly visible movement.
+
+Mention:
+- walking speed
+- balance or unsteadiness
+- gait deviations such as asymmetry, limping, or shuffling
+- whether the person stays within the walkway
+- an assistive device only if one is clearly visible
+
+Do not guess. If a feature is not clearly visible, do not mention it.
+Do not assign scores or infer medical conditions.
+Be specific to this clip.

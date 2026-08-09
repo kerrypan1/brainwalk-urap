@@ -1,0 +1,17 @@
+# Phase 0 (data layer)
+pandas
+numpy
+openpyxl
+
+# Phase 1+ (modeling). torch/torchvision install from the CUDA index:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+torch
+torchvision
+open_clip_torch
+opencv-python
+scikit-learn
+tqdm
+matplotlib
+
+# Phase 5+ (person cropping): YOLOv8 person detector
+ultralytics

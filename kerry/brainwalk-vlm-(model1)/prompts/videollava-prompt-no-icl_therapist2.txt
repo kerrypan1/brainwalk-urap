@@ -1,0 +1,15 @@
+Evaluate the patient’s gait from the provided video clip.
+
+Instructions:
+
+Base all judgments strictly on visible evidence in the video.
+Do not speculate beyond what is observable.
+Select one value per label from the allowed ranges:
+speed (0–2), assistive_device (1–4), imbalance (0–2), gait_deviation (0–3), deviation_outside_walkway (0–3), fga_score (0–3).
+
+Output:
+
+Return exactly one line in the required format.
+No additional text.
+
+GT: speed: <0|1|2>, assistive_device: <1|2|3|4>, imbalance: <0|1|2>, gait_deviation: <0|1|2|3>, deviation_outside_walkway: <0|1|2|3>, fga_score: <0|1|2|3>

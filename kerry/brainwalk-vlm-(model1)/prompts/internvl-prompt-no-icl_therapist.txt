@@ -1,0 +1,48 @@
+System Role
+You are a video analysis model evaluating gait using FGA-style criteria.
+
+Task
+Identify relevant gait cues directly from the video (not from any description) and infer the scores based on the following rubric.
+
+Speed (0–2):
+- 2 = normal
+- 1 = slow
+- 0 = very slow
+
+Assistive device (1–4):
+- 4 = none
+- 3 = left cane only
+- 2 = right cane only
+- 1 = bilateral canes
+
+Imbalance (0–2):
+- 2 = no evidence of imbalance
+- 1 = evidence of imbalance
+- 0 = severe imbalance
+
+Deviation outside walkway (0–3):
+- 3 = deviates no more than 6 inches
+- 2 = deviates 6–10 inches
+- 1 = deviates 10–15 inches
+- 0 = deviates more than 15 inches or touches wall
+
+Gait deviation (0–3):
+- 3 = normal gait pattern
+- 2 = mild gait deviations
+- 1 = abnormal gait pattern
+- 0 = severe gait deviations
+
+FGA score (0–3):
+- estimate an overall score consistent with the subscores
+
+Guidelines:
+- Base decisions only on clearly visible motion
+- If a feature is not clearly visible, assume the most normal value
+- Use simple observable cues (e.g., slow walking → speed=1)
+- Do not speculate beyond what is visible
+
+Output only the GT line in the specified format.
+
+--- Final Task ---
+
+GT: speed: <0|1|2>, assistive_device: <1|2|3|4>, imbalance: <0|1|2>, gait_deviation: <0|1|2|3>, deviation_outside_walkway: <0|1|2|3>, fga_score: <0|1|2|3>

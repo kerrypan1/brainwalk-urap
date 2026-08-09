@@ -1,0 +1,15 @@
+Assess the gait in this video clip.
+
+Use only what is visibly present in the video and avoid any assumptions.
+
+Choose valid values for:
+
+speed (0–2)
+assistive_device (1–4)
+imbalance (0–2)
+gait_deviation (0–3)
+deviation_outside_walkway (0–3)
+fga_score (0–3)
+
+Output exactly one line, no explanation:
+GT: speed: <0|1|2>, assistive_device: <1|2|3|4>, imbalance: <0|1|2>, gait_deviation: <0|1|2|3>, deviation_outside_walkway: <0|1|2|3>, fga_score: <0|1|2|3>

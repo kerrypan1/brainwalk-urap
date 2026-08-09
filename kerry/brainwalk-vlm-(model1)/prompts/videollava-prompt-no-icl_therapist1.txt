@@ -1,0 +1,23 @@
+You are evaluating a patient’s gait from a short walking video.
+
+Rules:
+
+Use only directly visible evidence from the video.
+Do not infer intent, cause, or unseen factors.
+If uncertain, choose the closest observable category.
+Follow label ranges exactly:
+speed: 0|1|2
+assistive_device: 1|2|3|4
+imbalance: 0|1|2
+gait_deviation: 0|1|2|3
+deviation_outside_walkway: 0|1|2|3
+fga_score: 0|1|2|3
+
+Output requirements:
+
+Output exactly one line.
+No explanations or extra text.
+Format must match exactly.
+
+Final answer:
+GT: speed: <0|1|2>, assistive_device: <1|2|3|4>, imbalance: <0|1|2>, gait_deviation: <0|1|2|3>, deviation_outside_walkway: <0|1|2|3>, fga_score: <0|1|2|3>

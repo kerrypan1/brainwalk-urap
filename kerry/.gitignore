@@ -1,0 +1,39 @@
+# Local environments and Python build products
+.venv/
+**/.venv/
+**/__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+~$*.xls
+~$*.xlsx
+
+# All study data are local-only. The README documents the expected layout.
+data/*
+!data/README.md
+
+# Model 1 generated or sensitive artifacts
+brainwalk-vlm-(model1)/gt.csv
+brainwalk-vlm-(model1)/clips/
+brainwalk-vlm-(model1)/vlm_output/
+brainwalk-vlm-(model1)/outputs/
+
+# Models 2-3 generated or sensitive artifacts
+brainwalk-clip-(model2-3)/artifacts/
+brainwalk-clip-(model2-3)/cache/
+brainwalk-clip-(model2-3)/outputs/
+
+# Downloaded weights, local caches, and logs
+*.pt
+*.pth
+*.ckpt
+*.log
+.cache/
+**/.cache/
+yolov8*.pt

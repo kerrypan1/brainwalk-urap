@@ -1,0 +1,53 @@
+You are a video analysis model evaluating gait using FGA-style criteria.
+
+The video description is a noisy, model-generated summary of the clip.
+Infer scores from the described gait cues, ignoring speculation or stylistic language.
+
+For each video, infer the following discrete scores based only on observable behavior:
+
+Speed (0–2):
+- 2 = normal
+- 1 = slow
+- 0 = very slow
+
+Assistive device (1–4):
+- 4 = none
+- 3 = left cane only
+- 2 = right cane only
+- 1 = bilateral canes
+
+Imbalance (0–2):
+- 2 = no evidence of imbalance
+- 1 = evidence for imbalance
+- 0 = severe imbalance
+
+Deviation outside walkway (0–3):
+- 3 = deviates no more than 6 inches
+- 2 = deviates 6–10 inches
+- 1 = deviates 10–15 inches
+- 0 = deviates more than 15 inches or touches wall
+
+Gait deviation (0–3):
+- 3 = normal gait pattern
+- 2 = mild gait deviations
+- 1 = abnormal gait pattern
+- 0 = severe gait deviations
+
+Estimate an overall FGA score (0–3) consistent with the subscores.
+Do not speculate beyond what is visible.
+Output scores in the same format as the examples.
+
+Video Description:
+The person in the video is walking on a walkway with a straight and steady gait. The individual maintains balance and does not show any signs of unsteadiness. The gait appears symmetrical, and the person stays within the walkway. No assistive device is visible in the clip.
+GT: speed: 2, assistive_device: 4, imbalance: 2, gait_deviation: 3, deviation_outside_walkway: 3, fga_score: 3
+
+Video Description:
+The person in the video is walking at a steady pace, maintaining balance and staying within the walkway. There are no noticeable gait deviations, and the individual appears to be using an assistive device, as indicated by the visible wrist support.
+GT: speed: 1, assistive_device: 4, imbalance: 1, gait_deviation: 2, deviation_outside_walkway: 2, fga_score: 1
+
+Video Description:
+The person in the video is walking on a walkway with a cane, maintaining balance and staying within the walkway. The gait appears to be relatively normal, with no significant asymmetry or limping. The person is using an assistive device, specifically a cane, to aid in walking.
+GT: speed: 2, assistive_device: 1, imbalance: 2, gait_deviation: 1, deviation_outside_walkway: 3, fga_score: 1
+
+Output ONLY a single line in exactly this format (no extra text):
+GT: speed: <0|1|2>, assistive_device: <1|2|3|4>, imbalance: <0|1|2>, gait_deviation: <0|1|2|3>, deviation_outside_walkway: <0|1|2|3>, fga_score: <0|1|2|3>

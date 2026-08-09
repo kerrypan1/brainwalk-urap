@@ -1,0 +1,7 @@
+artifacts/
+cache/
+outputs/
+__pycache__/
+*.pyc
+*.pt
+yolov8*.pt

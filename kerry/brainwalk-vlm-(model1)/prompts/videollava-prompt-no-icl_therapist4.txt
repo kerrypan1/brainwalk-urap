@@ -1,0 +1,5 @@
+From the video, rate the patient’s gait using only visible evidence. Do not speculate.
+
+Provide one value per label within valid ranges and output exactly one line:
+
+GT: speed: <0|1|2>, assistive_device: <1|2|3|4>, imbalance: <0|1|2>, gait_deviation: <0|1|2|3>, deviation_outside_walkway: <0|1|2|3>, fga_score: <0|1|2|3>
