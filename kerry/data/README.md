@@ -1,12 +1,8 @@
 # Local data layout
 
-This directory is intentionally excluded from Git. It contains protected study
-data, clinical labels, derived split files, and generated bootstrap indices.
-Obtain the required files only through the approved UCSF/IRB data-sharing
-process. Do not commit videos, spreadsheets, row-level labels, participant
-identifiers, or derived patient-level predictions.
+This directory is intentionally excluded from Git. 
 
-## Required inputs
+## Relevant folders
 
 ```text
 data/
@@ -34,52 +30,8 @@ data/
   patient-grouped five-fold split. Expected columns are `participant_id`,
   `split`, `label`, and `n_samples`.
 
-An optional historical `bath_pws/` folder may contain preferred-walk videos
-using the same filename convention. It is not required for the final
-fast-walk results.
-
-## Locked evaluation cohort
+## Evaluation cohort
 
 - 91 fast-walk videos from 46 patients
 - Four-class target distribution: `{0: 9, 1: 15, 2: 31, 3: 36}`
-- One labeled visit has no curated fast-walk video
 - Fixed seed-42 patient-grouped five-fold evaluation
-
-Identifiers appear in three forms:
-
-| Level | Example |
-|---|---|
-| Participant | `BW-PPPP` |
-| Label/sample ID | `P_V` |
-| Curated video stem | `PPPP_V` |
-
-## Generated local data
-
-The following are also excluded from Git:
-
-- `bootstrap_indices*.npz`
-- Model 1 `gt.csv`, extracted clips, and per-clip VLM outputs
-- Models 2–3 `artifacts/`, including indexed videos, labels, fold assignments,
-  Zeno joins, and local path columns (repo-relative under this `data/` layout)
-- Feature/frame caches and all per-video or per-fold predictions
-
-To rebuild the Models 2–3 data tables, run from
-`brainwalk-clip-(model2-3)/data_build/`:
-
-```powershell
-python build_video_index.py
-python build_fga_labels.py
-python build_zeno_metrics.py
-python join_video_zeno.py
-python audit.py
-```
-
-Then build the labeled fast-walk table from
-`brainwalk-clip-(model2-3)/src/`:
-
-```powershell
-python -m data.labeled_table
-```
-
-See the model-specific READMEs for feature extraction, inference, and training
-commands.
