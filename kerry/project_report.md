@@ -98,7 +98,11 @@ The existing Model 2 caches retain only predicted classes, not averaged
 softmax scores, so for Model 2, MAE is calculated from class-label rather than
 continuous-score MAE. Therefore, Model 2 MAE is not directly identical to the continuous-score MAE reported for Models 1 and 3. The paper-inspired variants did not outperform the simple cropped-CLIP models.
 
+Related experiments that also underperformed: zero-shot/CoOp prompting, an early VPT + temporal-transformer implementation, and sparse temporal-window models.
+
 ## Model 3: frozen CLIP encoder with supervised head
+
+Instead of using a complete VLM, this approach uses a standalone frozen CLIP vision encoder to construct a video-level representation. A lightweight supervised classification head is then trained to predict the FGA score.
 
 ### Encoder and method
 
@@ -152,5 +156,5 @@ The main conclusions are:
 2. The zero-shot VLM effectively collapses to a constant prediction.
 3. The constrained Vita-CLIP/KAPT/NTE adaptation does not transfer the paper's
    reported gain to this endpoint and cohort.
-4. The best model, Cropped CLIP + logreg, along with the exploratory three-class endpoint, has promising results near 50% accuracy but requires clinical
+4. The best model, Cropped CLIP + logreg/CORAL, along with the exploratory three-class endpoint, has promising results near 50% accuracy but requires clinical
    justification before being treated as a primary outcome.
