@@ -1,6 +1,6 @@
 # BRAINWALK VLM methods and results
 
-(also in project doc)
+(also in https://docs.google.com/document/d/1Ni35AyJtCMB4sKvyZ4Su3uuhpwq4YgQQJb4ljaO6CZU/edit?usp=sharing)
 
 ## Dataset
 
