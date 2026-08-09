@@ -1,6 +1,6 @@
 # Local data layout
 
-This directory is intentionally excluded from Git. 
+This directory is excluded from Git. 
 
 ## Relevant folders
 
