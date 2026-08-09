@@ -158,5 +158,4 @@ The main conclusions are:
 2. The zero-shot VLM effectively collapses to a constant prediction.
 3. The constrained Vita-CLIP/KAPT/NTE adaptation does not transfer the paper's
    reported gain to this endpoint and cohort.
-4. The best model, Cropped CLIP + logreg/CORAL, along with the exploratory three-class endpoint, has promising results near 50% accuracy but requires clinical
-   justification before being treated as a primary outcome.
+4. Cropped CLIP + CORAL gives the strongest primary four-class result, while cropped CLIP + logistic regression performs best on the exploratory three-class endpoint. The three-class result approaches 50% accuracy but represents a changed endpoint that requires clinical justification.
