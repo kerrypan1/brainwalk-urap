@@ -9,7 +9,7 @@ import re
 
 import pandas as pd
 
-from utils.paths import ARTIFACTS_DIR, BATH_FW_DIR, SPLIT_CSV
+from utils.paths import ARTIFACTS_DIR, BATH_FW_DIR, REPO_ROOT, SPLIT_CSV
 
 
 FGA_ITEM_FIELDS = [
@@ -39,7 +39,9 @@ def build() -> pd.DataFrame:
             continue
         pid = f"BW-{int(m.group(1)):04d}"
         visit = int(m.group(2))
-        rows.append({"stem": p.stem, "path": str(p), "patient_id": pid, "visit_index": visit})
+        # Repo-relative path so artifacts survive checkout moves / handoff.
+        rel = p.resolve().relative_to(REPO_ROOT).as_posix()
+        rows.append({"stem": p.stem, "path": rel, "patient_id": pid, "visit_index": visit})
     clips = pd.DataFrame(rows)
 
     fga_cols = ["patient_id", "visit_index", "fga_score", *FGA_ITEM_FIELDS]

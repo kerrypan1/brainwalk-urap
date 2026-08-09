@@ -1,6 +1,6 @@
 """Shared paths and parsing helpers for Model 2/3 data builders.
 
-All builders resolve paths relative to the repo root (the `ucsf/` folder that
+All builders resolve paths relative to the kerry/ package root (the folder that
 contains both `data/` and `brainwalk-clip-(model2-3)/`), so scripts run
 correctly from any working directory.
 """

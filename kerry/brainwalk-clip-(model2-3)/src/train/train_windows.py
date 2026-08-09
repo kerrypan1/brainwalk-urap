@@ -4,7 +4,7 @@ The paper turns ~100 videos into ~900 sliding-window clips per fold and trains a
 temporal video model with multi-class focal loss, averaging window predictions at
 test time. We mirror that on cached dense per-frame features:
   - dense features [N, T_dense, D] (person-cropped) -> contiguous windows of length W
-    (stride S) => many training clips/video (fixes the n=89 overfit).
+    (stride S) => many training clips/video (mitigates small-n overfitting).
   - temporal head (attention-pool or small Transformer) trained with focal loss.
   - patient-grouped K-fold; at test, AVERAGE softmax over a clip's windows -> label.
 

@@ -22,8 +22,9 @@ pip install -r requirements.txt
 ```
 
 Run data builders from `data_build/` and model modules from `src/`. Paths are
-resolved relative to this repository, so the commands do not depend on the
-current user's home directory.
+resolved relative to the kerry/ package root (parent of this folder), so the
+commands do not depend on the current user's home directory. `labeled_fw.csv`
+stores repo-relative video paths such as `data/bath_fw/0002_1.mp4`.
 
 ## Build local data tables
 

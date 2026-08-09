@@ -27,7 +27,7 @@ import torch
 from tqdm import tqdm
 
 from data.video_io import sample_frames_bgr, to_pil
-from utils.paths import ARTIFACTS_DIR, CACHE_DIR, DATA_DIR
+from utils.paths import ARTIFACTS_DIR, CACHE_DIR, DATA_DIR, resolve_video_path
 
 RAW_VIDEO_DIR = DATA_DIR / "raw" / "bw_gait_videos"
 
@@ -44,7 +44,14 @@ def load_rows(source: str):
         df = build_labeled()
         df = df[df["fga_score"].notna()].reset_index(drop=True)
         df.to_csv(ARTIFACTS_DIR / "labeled_fw.csv", index=False)
-        return [{"key": r["stem"], "id": r["stem"], "path": r["path"]} for _, r in df.iterrows()]
+        return [
+            {
+                "key": r["stem"],
+                "id": r["stem"],
+                "path": str(resolve_video_path(r["path"], r["stem"])),
+            }
+            for _, r in df.iterrows()
+        ]
     if source == "corpus":
         pairs = pd.read_csv(ARTIFACTS_DIR / "pairs.csv")
         return [{"key": safe_key(r["video_id"]), "id": r["video_id"],

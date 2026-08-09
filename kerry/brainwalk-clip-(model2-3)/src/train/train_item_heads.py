@@ -2,8 +2,8 @@
 
 Uses person-cropped frozen CLIP mean-pooled features (Phase 5 cache) and the
 existing **seed-42 5-fold** patient split (`fold_0`..`fold_4`). 5-fold is preferred
-over 10-fold here: more train patients per fold (~36 vs ~80) and less sparse
-minority-class test sets on n=89.
+over 10-fold here: more train patients per fold and less sparse minority-class
+test sets on the n=91 cohort.
 
 Targets:
   - fga_score (4-class and 3-class collapsed)

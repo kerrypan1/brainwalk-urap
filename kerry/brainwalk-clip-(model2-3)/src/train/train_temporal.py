@@ -4,7 +4,7 @@ Compares, on the SAME patient-grouped seed-42 5-fold, out-of-fold:
   - crop_mean   : mean-pool cropped per-frame features + logreg   (isolates the CROP effect)
   - crop_tstats : [mean||std||max] over time + logreg             (cheap temporal, no training)
   - crop_attn   : learned attention-pool head (torch)             (learned temporal)
-Reports constant-predictor references and bootstrap 95% CIs (n=89 is noisy).
+Reports constant-predictor references and bootstrap 95% CIs (n=91 is noisy).
 
 Usage:
   python -m train.train_temporal --features ../cache/framefeat_labeled_crop_ViT-B-32-quickgelu_openai_T32.npz

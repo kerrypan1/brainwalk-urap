@@ -24,7 +24,7 @@ from tqdm import tqdm
 
 from data.person_crop import PersonCropper
 from data.video_io import sample_frames_bgr
-from utils.paths import ARTIFACTS_DIR, CACHE_DIR
+from utils.paths import ARTIFACTS_DIR, CACHE_DIR, resolve_video_path
 
 
 def load_rows():
@@ -33,7 +33,10 @@ def load_rows():
     df = build_labeled()
     df = df[df["fga_score"].notna()].reset_index(drop=True)
     df.to_csv(ARTIFACTS_DIR / "labeled_fw.csv", index=False)
-    return [{"key": r["stem"], "path": r["path"]} for _, r in df.iterrows()]
+    return [
+        {"key": r["stem"], "path": str(resolve_video_path(r["path"], r["stem"]))}
+        for _, r in df.iterrows()
+    ]
 
 
 def main() -> None:

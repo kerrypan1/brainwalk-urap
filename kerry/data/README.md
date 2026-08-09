@@ -60,7 +60,7 @@ The following are also excluded from Git:
 - `bootstrap_indices*.npz`
 - Model 1 `gt.csv`, extracted clips, and per-clip VLM outputs
 - Models 2–3 `artifacts/`, including indexed videos, labels, fold assignments,
-  Zeno joins, and absolute local paths
+  Zeno joins, and local path columns (repo-relative under this `data/` layout)
 - Feature/frame caches and all per-video or per-fold predictions
 
 To rebuild the Models 2–3 data tables, run from

@@ -23,7 +23,7 @@ import numpy as np
 import pandas as pd
 
 from data.person_crop import _interp_nan, _median_smooth
-from utils.paths import ARTIFACTS_DIR, CACHE_DIR
+from utils.paths import ARTIFACTS_DIR, CACHE_DIR, resolve_video_path
 
 
 def _load_rows():
@@ -132,7 +132,8 @@ def build_segments(stride: int = 10, conf: float = 0.25, limit: int = 0, force: 
     model.to(0)
 
     for r in todo:
-        cx, n = detect_centroid_x(r.path, model, conf=conf, stride=stride)
+        video_path = str(resolve_video_path(r.path, r.stem))
+        cx, n = detect_centroid_x(video_path, model, conf=conf, stride=stride)
         if n == 0:
             print(f"  skip {r.stem}: no frames")
             continue
