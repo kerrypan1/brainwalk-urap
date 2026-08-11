@@ -1,0 +1,36 @@
+experiment_name: multi_outcome
+random_seed: 42
+
+# Consumed by scripts/run_multi_outcome.py. Sub-scores use the merged
+# features+labels tables; Zeno mentor measures use the single wide table.
+splits: 5
+
+subscores:
+  ordinal:            # --task regression
+    - speed
+    - imbalance
+    - gait_deviation
+    - deviation_outside_walkway
+  nominal:            # --task classification
+    - assistive_device
+
+zeno:
+  task: regression_continuous
+  data_file: data/training_features_zeno_mentor_outcomes_wide.csv
+  targets:
+    - cadencestepsminmean
+    - velocitycmsecmean
+    - totaldsupportmean
+    - totaldsupportratiolr
+    - singlesupportratiolr
+    - singlesupportmean
+    - stridevelocitycmsecmean
+    - stridewidthcmmean
+    - absolutesteplengthcmratiolr
+    - absolutesteplengthcmmean
+    - meanegvimean
+    - walkratiocmstepsminmean
+    - stridetimeseccv
+    - stridelengthcmmean
+    - stridelengthcmcv
+    - stridewidthcmsd

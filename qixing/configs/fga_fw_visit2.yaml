@@ -1,0 +1,37 @@
+# NOT the study definition. The analysis sample is visit 1 (configs/fga_fw_visit1.yaml).
+# This config re-runs the identical protocol on visit 2 solely to reproduce the
+# limitation that performance is sensitive to which visit is used; its numbers must
+# not be reported in any main table. See the Limitations section of docs/RESULTS_SUMMARY.md.
+# Outer folds come from the teammate bootstrap npz (Kerry's participant grouping);
+# inner 3-fold grid search selects hyperparameters on outer-train only.
+experiment_name: fga_fw_visit2
+random_seed: 42
+task: regression
+
+data:
+  features: data/2026_05_17_FWOnly_2visits_features.csv
+  labels: data/2026_05_17_FWOnly_2visits_labels.csv
+  data_file: null
+  id_col: sample_id
+  target: fga_estimate_score
+  visit: 2
+
+cv:
+  strategy: bootstrap_aligned
+  n_splits: 5
+  bootstrap_npz: data/bootstrap_indices.npz
+  use_bootstrap_folds: true
+
+model:
+  tune: grid
+  tune_splits: 3
+
+feature_selection:
+  method: none
+  rfecv_min_features: 5
+  rfecv_step: 1
+  features_json: null
+
+reporting:
+  ci_alpha: 0.05
+  participant_level: false  # sample-level is the reported metric; see rule 4

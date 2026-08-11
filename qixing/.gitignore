@@ -1,0 +1,28 @@
+# Virtual environments
+.venv/
+.venv*/
+venv/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Data: this directory is code-and-documentation only.
+# Everything under data/ is ignored except the contract that says what to put there.
+data/*
+!data/README.md
+
+# Run outputs. Every result is regenerable from the data; nothing here is committed,
+# because per-sample prediction files carry participant identifiers.
+results/
+experiments/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+~$*.docx

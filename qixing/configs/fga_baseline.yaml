@@ -1,0 +1,30 @@
+experiment_name: fga_baseline
+random_seed: 42
+task: regression
+
+data:
+  features: data/2026_05_17_FWOnly_2visits_features.csv
+  labels: data/2026_05_17_FWOnly_2visits_labels.csv
+  data_file: null
+  id_col: sample_id
+  target: fga_estimate_score
+
+cv:
+  strategy: stratified_group
+  n_splits: 5
+  bootstrap_npz: data/bootstrap_indices.npz
+  use_bootstrap_folds: false
+
+model:
+  tune: none
+  tune_splits: 3
+
+feature_selection:
+  method: none
+  rfecv_min_features: 5
+  rfecv_step: 1
+  features_json: null
+
+reporting:
+  ci_alpha: 0.05
+  participant_level: false  # sample-level is the reported metric; see rule 4
