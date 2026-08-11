@@ -17,5 +17,5 @@ Each folder contains the code, experiments, and results for that researcher's ap
 
 Projects docs are linked:  
 Kerry: https://docs.google.com/document/d/1Ni35AyJtCMB4sKvyZ4Su3uuhpwq4YgQQJb4ljaO6CZU/edit?usp=sharing  
-Qixing: https://docs.google.com/document/d/1DmRcMbAoZiMIggX1tVgz4MNGQprzl-WZK5LHD6tijtk/edit?usp=sharing
+Qixing: https://docs.google.com/document/d/1DmRcMbAoZiMIggX1tVgz4MNGQprzl-WZK5LHD6tijtk/edit?usp=sharing  
 Joseph: https://docs.google.com/document/d/1763lvCTbe08dAFaQr2gk8DGISPCfstBot9Z0WpAFGa4/edit?usp=sharing  
