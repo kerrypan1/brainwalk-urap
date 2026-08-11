@@ -136,6 +136,13 @@ Ridge uses its direct continuous output.
 CORAL gives the strongest overall primary result by accuracy and raw MAE. Cropping improves every reported metric for the
 matched logistic-regression control, although fold variability is substantial.
 
+Confusion Matrix for best result (CLIP + CORAL):  
+Rows = true FGA (0-3, top to bottom), columns = predicted (0-3, left to right)   
+[[ 1,  5,  2,  1],  
+ [ 1,  6,  7,  1],  
+ [ 0,  5, 14, 12],  
+ [ 1,  1, 16, 18]]  
+
 ### Exploratory three-class endpoint
 
 Classes 0 and 1 are merged, producing ordered classes `{0–1, 2, 3}`, reindexed
