@@ -1,22 +1,22 @@
 feature,group,source,basis
 ankle_separation_3d_mean,pace_rhythm,PKMAS,"Step Length (cm) Mean. Kaur defines stride length, not step length."
-ankle_separation_lateral_mean,pace_rhythm,Kaur 2021 + PKMAS,Stride width. Kaur spatial 2/4; PKMAS Stride Width (cm) Mean.
-dual_stance_window_overlap_frac,pace_rhythm,Kaur 2021 + PKMAS,"Double support. Kaur initial plus terminal double supporting time; PKMAS Total D. Support %. Computed here as the overlap of two 0.15 s post-event windows, so it is not double-support time."
+ankle_separation_lateral_mean,pace_rhythm,Kaur 2021,Stride width. Kaur spatial 2/4; PKMAS Stride Width (cm) Mean.
+dual_stance_window_overlap_frac,pace_rhythm,Kaur 2021,"Double support. Kaur initial plus terminal double supporting time; PKMAS Total D. Support %. Computed here as the overlap of two 0.15 s post-event windows, so it is not double-support time."
 foot_axis_angle_mean,pace_rhythm,Kaur 2021,"Foot progression angle, left and right. Kaur spatial 3-4/4."
 foot_event_count_left_total,pace_rhythm,own,Raw step-event count. Neither source uses an unnormalised count; both report a rate.
 foot_event_count_right_total,pace_rhythm,own,"Raw step-event count, right foot. Same caveat."
 foot_event_interval_left_mean,pace_rhythm,PKMAS,"Step Time, left."
 foot_event_interval_right_mean,pace_rhythm,PKMAS,"Step Time, right."
-pelvis_path_speed_xz,pace_rhythm,Kaur 2021 + PKMAS,"Gait speed. Kaur stride speed; PKMAS Velocity (cm/sec). Hip-centred coordinates remove travel through the room, so this is a proxy: Spearman 0.24 against the Zeno velocity."
-pelvis_x_speed_mean,pace_rhythm,Kaur 2021 + PKMAS,"Same gait-speed definition, pelvis x-series only. Spearman 0.02 against the Zeno velocity, so it does not measure walking speed."
+pelvis_path_speed_xz,pace_rhythm,PKMAS,"Velocity (cm/sec) Mean. Kaur is a treadmill study, where belt speed is imposed, so it has no walking-velocity parameter. Hip-centred coordinates remove travel through the room, so this is a proxy: Spearman 0.24 against the Zeno velocity."
+pelvis_x_speed_mean,pace_rhythm,PKMAS,"Same Velocity definition, pelvis x-series only. Spearman 0.02 against the Zeno velocity, so it does not measure walking speed."
 stance_ratio_mean,pace_rhythm,Kaur 2021,"Stance time divided by stride time, from Kaur's temporal set."
 stance_time_mean,pace_rhythm,Kaur 2021,Stance time. Kaur temporal 2/7.
 step_event_interval_mean,pace_rhythm,PKMAS,"Step Time, mean."
-step_event_rate_per_min,pace_rhythm,Kaur 2021 + PKMAS,Cadence. Kaur temporal 7/7; PKMAS Cadence (steps/min).
-step_event_rate_per_sec,pace_rhythm,Kaur 2021 + PKMAS,"Cadence, per-second scaling. Kaur temporal 7/7; PKMAS Cadence (steps/min)."
-stride_length_mean,pace_rhythm,Kaur 2021 + PKMAS,Stride length. Kaur spatial 1/4; PKMAS Stride Length (cm) Mean.
-stride_speed_mean,pace_rhythm,Kaur 2021 + PKMAS,"Stride speed, stride length divided by stride time. Kaur spatiotemporal 1/2; PKMAS Stride Velocity."
-stride_time_mean,pace_rhythm,Kaur 2021 + PKMAS,Stride time. Kaur temporal 1/7; PKMAS Stride Time.
+step_event_rate_per_min,pace_rhythm,Kaur 2021,Cadence. Kaur temporal 7/7; PKMAS Cadence (steps/min).
+step_event_rate_per_sec,pace_rhythm,Kaur 2021,"Cadence, per-second scaling. Kaur temporal 7/7; PKMAS Cadence (steps/min)."
+stride_length_mean,pace_rhythm,Kaur 2021,Stride length. Kaur spatial 1/4; PKMAS Stride Length (cm) Mean.
+stride_speed_mean,pace_rhythm,Kaur 2021,"Stride speed, stride length divided by stride time. Kaur spatiotemporal 1/2; PKMAS Stride Velocity."
+stride_time_mean,pace_rhythm,Kaur 2021,Stride time. Kaur temporal 1/7; PKMAS Stride Time.
 swing_time_mean,pace_rhythm,Kaur 2021,Swing time. Kaur temporal 3/7.
 wrist_tremor_dominant_freq,pace_rhythm,own,"Dominant frequency of the wrist y-signal. A tremor measure, not a gait parameter."
 ankle_separation_3d_cv,variability,PKMAS,CV (4.6) of Step Length.
@@ -30,8 +30,8 @@ pelvis_speed_std,variability,own,SD of the pelvis velocity series.
 shoulder_line_rotation_speed_cv,variability,own,CV (PKMAS 4.6) applied to a shoulder-line signal neither source measures.
 step_event_interval_cv,variability,PKMAS,CV (4.6) of Step Time.
 step_event_interval_std,variability,PKMAS,SD (4.5) of Step Time.
-stride_length_cv,variability,Kaur 2021 + PKMAS,PKMAS Stride Length %CV (4.6). Kaur also reports stride-wise variability.
-stride_time_cv,variability,Kaur 2021 + PKMAS,PKMAS Stride Time %CV (4.6). Kaur also reports stride-wise variability.
+stride_length_cv,variability,PKMAS,Stride Length %CV (4.6). Kaur reports stride-wise variability but not this column.
+stride_time_cv,variability,PKMAS,Stride Time %CV (4.6). Kaur reports stride-wise variability but not this column.
 trunk_tilt_angle_std,variability,own,SD of the shoulder-to-hip line tilt. Pose only.
 foot_displacement_asymmetry_abs,symmetry,PKMAS,Unsigned asymmetry index (4.4) over the step-length series.
 foot_displacement_asymmetry_signed,symmetry,PKMAS,Asymmetry index (4.4) of the mean left and right step length. Compare Step Length Ratio L/R (4.3).
