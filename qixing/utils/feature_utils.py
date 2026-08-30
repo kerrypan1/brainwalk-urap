@@ -1,3 +1,4 @@
+# Feature names here are the original ones. docs/feature_renames.csv maps them to the current names.
 from typing import Dict, Tuple, Optional
 import numpy as np
 from scipy import signal

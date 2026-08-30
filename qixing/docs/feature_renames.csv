@@ -1,0 +1,77 @@
+legacy_name,canonical_name,changed,group,reason
+cadence_hz,step_event_rate_per_sec,True,pace_rhythm,"Counts *detected* step events; the detector over-counts, so 'cadence' overstated it."
+cadence_spm,step_event_rate_per_min,True,pace_rhythm,"A rate of detected step events per minute, not a validated cadence."
+gait_speed_enhanced,pelvis_path_speed_xz,True,pace_rhythm,"Hip-centred coordinates remove travel through the room, so this is pelvis path per second, not gait speed (rho = 0.24 with the Zeno velocity)."
+mean_gait_speed,pelvis_x_speed_mean,True,pace_rhythm,"Hip-centred coordinates remove travel through the room, and it correlates rho = 0.02 with the Zeno velocity, so it does not measure walking speed."
+stride_speed_mean,stride_speed_mean,False,pace_rhythm,
+step_length_mean,ankle_separation_3d_mean,True,pace_rhythm,"Frame-average 3D distance between the two ankles, not a per-step length."
+stride_length_mean,stride_length_mean,False,pace_rhythm,
+stride_width_mean,ankle_separation_lateral_mean,True,pace_rhythm,"Lateral ankle separation; named for the measurement, not the stride-width construct."
+step_time_mean,step_event_interval_mean,True,pace_rhythm,Interval between merged-foot events.
+step_time_left_mean,foot_event_interval_left_mean,True,pace_rhythm,"One foot only, so consecutive events are a stride apart (~0.92 s) - twice the time base of step_time_mean."
+step_time_right_mean,foot_event_interval_right_mean,True,pace_rhythm,"A one-foot event interval, i.e. a stride time rather than a step time."
+stride_time_mean,stride_time_mean,False,pace_rhythm,
+stance_time_mean,stance_time_mean,False,pace_rhythm,
+stance_ratio_mean,stance_ratio_mean,False,pace_rhythm,
+swing_time_mean,swing_time_mean,False,pace_rhythm,
+double_support_time_fraction,dual_stance_window_overlap_frac,True,pace_rhythm,"Overlap of two fixed 0.15 s post-event windows - cohort mean 2.4% against a physiological 20-25%, and rho = -0.03 with the Zeno double support."
+step_events_left_count,foot_event_count_left_total,True,pace_rhythm,An unnormalised total that grows with recording length; '_total' makes that explicit.
+step_events_right_count,foot_event_count_right_total,True,pace_rhythm,An unnormalised total that grows with recording length; '_total' makes that explicit.
+dominant_frequency,wrist_tremor_dominant_freq,True,pace_rhythm,"It is the wrist tremor band's dominant frequency, not a gait frequency."
+foot_progression_angle_mean,foot_axis_angle_mean,True,pace_rhythm,"Averages 79 degrees, far outside the physiological foot-progression range, so it is a foot-axis angle proxy."
+step_length_cv,ankle_separation_3d_cv,True,variability,"A CV of the frame-wise ankle separation, not step-to-step variability."
+step_length_std,ankle_separation_3d_std,True,variability,"An SD of the frame-wise ankle separation, not step-to-step variability."
+step_time_std,step_event_interval_std,True,variability,The interval is measured between merged-foot events.
+step_time_left_std,foot_event_interval_left_std,True,variability,"Consecutive one-foot events are a stride apart, so this is not a step time."
+step_time_right_std,foot_event_interval_right_std,True,variability,"Consecutive one-foot events are a stride apart, so this is not a step time."
+step_time_variability,step_event_interval_cv,True,variability,It is a CV; the name did not say which statistic.
+stride_length_cv,stride_length_cv,False,variability,
+stride_time_cv,stride_time_cv,False,variability,
+foot_progression_angle_std,foot_axis_angle_std,True,variability,"Averages far outside the physiological foot-progression range, so it is a foot- axis angle proxy."
+com_acceleration_std,pelvis_acceleration_std,True,variability,"'COM' is the hip midpoint, not a centre of mass."
+com_acceleration_std_log1p,pelvis_acceleration_std_log1p,True,variability,'COM' is the hip midpoint; the suffix keeps the log transform visible.
+com_velocity_std,pelvis_speed_std,True,variability,"'COM' is the hip midpoint, and the quantity is a speed."
+head_rotation_variability,shoulder_line_rotation_speed_cv,True,variability,"The angle is the shoulder line, not the head, and the statistic is a CV of its rotation speed."
+trunk_tilt_std,trunk_tilt_angle_std,True,variability,Explicitly an angle.
+arm_swing_amplitude_asymmetry,wrist_swing_amplitude_diff_norm,True,symmetry,Wrist-relative-to-shoulder amplitude difference normalised by shoulder separation.
+arm_swing_peak_to_peak_asymmetry,wrist_swing_range_asymmetry,True,symmetry,Asymmetry of the wrist swing range.
+hip_angle_velocity_asymmetry_index,hip_angle_velocity_asymmetry_index,False,symmetry,
+knee_angle_velocity_asymmetry_index,knee_angle_velocity_asymmetry_index,False,symmetry,
+leg_step_length_asymmetry,foot_displacement_asymmetry_abs,True,symmetry,"Asymmetry of per-side ankle x-displacement, absolute value."
+step_length_asymmetry_index,foot_displacement_asymmetry_signed,True,symmetry,The signed version of the same quantity (r = 0.997 with it).
+shoulder_height_asymmetry,shoulder_height_asymmetry,False,symmetry,
+step_time_asymmetry_index,foot_event_interval_asymmetry_index,True,symmetry,Asymmetry of the same-foot event intervals.
+stepping_symmetry_ratio,foot_event_count_balance,True,symmetry,"A balance of the two event counts, carrying no information beyond them."
+phase_locking_value,wrist_phase_locking_value,True,symmetry,Between the two wrist signals - the segment was missing from the name.
+com_acceleration_mean,pelvis_acceleration_mean,True,postural,"'COM' is the hip midpoint, not a centre of mass."
+com_acceleration_mean_log1p,pelvis_acceleration_mean_log1p,True,postural,'COM' is the hip midpoint; the suffix keeps the log transform visible.
+com_velocity_mean,pelvis_speed_mean,True,postural,"'COM' is the hip midpoint, not a centre of mass."
+head_lateral_sway,nose_lateral_sway_std,True,postural,Computed from the nose landmark; naming the landmark keeps the unit caveat visible.
+head_vertical_sway,nose_vertical_sway_std,True,postural,"Computed from the nose landmark, so the name states the landmark."
+head_path_length,nose_path_length_total,True,postural,Nose path summed over the recording - an unnormalised total.
+head_rotation_speed_max,shoulder_line_rotation_speed_max,True,postural,"The angle is the shoulder line, not the head, and the value is a per-frame maximum."
+head_rotation_speed_mean,shoulder_line_rotation_speed_mean,True,postural,"The angle is arctan2(right_shoulder_x - left_shoulder_x, 1): the shoulder line, not the head."
+trunk_tilt_mean,trunk_tilt_angle_mean,True,postural,Explicitly an angle.
+jerk_magnitude,wrist_jerk_magnitude,True,postural,"Computed from the wrists, so it is an upper-limb smoothness measure."
+power_3_7Hz,wrist_tremor_band_power,True,postural,Wrist tremor band power (and constant zero in this dataset).
+arm_swing_peak_to_peak_left,wrist_swing_range_left,True,upper_limb,"Peak-to-peak is a range, measured at the wrist."
+arm_swing_peak_to_peak_right,wrist_swing_range_right,True,upper_limb,"Peak-to-peak is a range, measured at the wrist relative to the shoulder."
+elbow_angle_velocity_mean_left,elbow_angle_velocity_left_mean,True,upper_limb,"Naming convention only (side before statistic, explicit statistic suffix)."
+elbow_angle_velocity_mean_right,elbow_angle_velocity_right_mean,True,upper_limb,"Naming convention only (side before statistic, explicit statistic suffix)."
+elbow_angle_velocity_std_left,elbow_angle_velocity_left_std,True,upper_limb,"Naming convention only (side before statistic, explicit statistic suffix)."
+elbow_angle_velocity_std_right,elbow_angle_velocity_right_std,True,upper_limb,"Naming convention only (side before statistic, explicit statistic suffix)."
+tremor_cross_wrist_coherence,wrist_tremor_coherence_lr,True,upper_limb,All tremor measures are wrist-derived; the suffix names the left-right pairing.
+tremor_intermittency,wrist_tremor_low_power_window_frac,True,upper_limb,"It is the fraction of 1 s windows whose band power falls below the median of that same recording's windows, so it is ~0.5 by construction and carries no information about tremor."
+tremor_regularity,wrist_tremor_spectral_entropy,True,upper_limb,"It is the normalised Shannon entropy of the 3-7 Hz spectrum, so a HIGHER value means a LESS regular oscillation - the old name inverted the meaning."
+wrist_tremor_amplitude,wrist_tremor_amplitude,False,upper_limb,
+hip_angle_velocity_mean_left,hip_angle_velocity_left_mean,True,joint_kinematics,"Naming convention only (side before statistic, explicit statistic suffix)."
+hip_angle_velocity_mean_right,hip_angle_velocity_right_mean,True,joint_kinematics,"Naming convention only (side before statistic, explicit statistic suffix)."
+hip_angle_velocity_std_left,hip_angle_velocity_left_std,True,joint_kinematics,"Naming convention only (side before statistic, explicit statistic suffix)."
+hip_angle_velocity_std_right,hip_angle_velocity_right_std,True,joint_kinematics,"Naming convention only (side before statistic, explicit statistic suffix)."
+knee_angle_velocity_mean_left,knee_angle_velocity_left_mean,True,joint_kinematics,"Naming convention only (side before statistic, explicit statistic suffix)."
+knee_angle_velocity_mean_right,knee_angle_velocity_right_mean,True,joint_kinematics,"Naming convention only (side before statistic, explicit statistic suffix)."
+knee_angle_velocity_std_left,knee_angle_velocity_left_std,True,joint_kinematics,"Naming convention only (side before statistic, explicit statistic suffix)."
+knee_angle_velocity_std_right,knee_angle_velocity_right_std,True,joint_kinematics,"Naming convention only (side before statistic, explicit statistic suffix)."
+landmark_gap_filled_ratio,landmark_gap_filled_ratio,False,acquisition_quality,
+landmark_large_gap_count,landmark_large_gap_count,False,acquisition_quality,
+landmark_mean_nan_ratio,landmark_mean_nan_ratio,False,acquisition_quality,
