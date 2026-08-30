@@ -1,0 +1,77 @@
+feature,group,source,basis
+ankle_separation_3d_mean,pace_rhythm,PKMAS,"Step Length (cm) Mean. Kaur defines stride length, not step length."
+ankle_separation_lateral_mean,pace_rhythm,Kaur 2021 + PKMAS,Stride width. Kaur spatial 2/4; PKMAS Stride Width (cm) Mean.
+dual_stance_window_overlap_frac,pace_rhythm,Kaur 2021 + PKMAS,"Double support. Kaur initial plus terminal double supporting time; PKMAS Total D. Support %. Computed here as the overlap of two 0.15 s post-event windows, so it is not double-support time."
+foot_axis_angle_mean,pace_rhythm,Kaur 2021,"Foot progression angle, left and right. Kaur spatial 3-4/4."
+foot_event_count_left_total,pace_rhythm,own,Raw step-event count. Neither source uses an unnormalised count; both report a rate.
+foot_event_count_right_total,pace_rhythm,own,"Raw step-event count, right foot. Same caveat."
+foot_event_interval_left_mean,pace_rhythm,PKMAS,"Step Time, left."
+foot_event_interval_right_mean,pace_rhythm,PKMAS,"Step Time, right."
+pelvis_path_speed_xz,pace_rhythm,Kaur 2021 + PKMAS,"Gait speed. Kaur stride speed; PKMAS Velocity (cm/sec). Hip-centred coordinates remove travel through the room, so this is a proxy: Spearman 0.24 against the Zeno velocity."
+pelvis_x_speed_mean,pace_rhythm,Kaur 2021 + PKMAS,"Same gait-speed definition, pelvis x-series only. Spearman 0.02 against the Zeno velocity, so it does not measure walking speed."
+stance_ratio_mean,pace_rhythm,Kaur 2021,"Stance time divided by stride time, from Kaur's temporal set."
+stance_time_mean,pace_rhythm,Kaur 2021,Stance time. Kaur temporal 2/7.
+step_event_interval_mean,pace_rhythm,PKMAS,"Step Time, mean."
+step_event_rate_per_min,pace_rhythm,Kaur 2021 + PKMAS,Cadence. Kaur temporal 7/7; PKMAS Cadence (steps/min).
+step_event_rate_per_sec,pace_rhythm,Kaur 2021 + PKMAS,"Cadence, per-second scaling. Kaur temporal 7/7; PKMAS Cadence (steps/min)."
+stride_length_mean,pace_rhythm,Kaur 2021 + PKMAS,Stride length. Kaur spatial 1/4; PKMAS Stride Length (cm) Mean.
+stride_speed_mean,pace_rhythm,Kaur 2021 + PKMAS,"Stride speed, stride length divided by stride time. Kaur spatiotemporal 1/2; PKMAS Stride Velocity."
+stride_time_mean,pace_rhythm,Kaur 2021 + PKMAS,Stride time. Kaur temporal 1/7; PKMAS Stride Time.
+swing_time_mean,pace_rhythm,Kaur 2021,Swing time. Kaur temporal 3/7.
+wrist_tremor_dominant_freq,pace_rhythm,own,"Dominant frequency of the wrist y-signal. A tremor measure, not a gait parameter."
+ankle_separation_3d_cv,variability,PKMAS,CV (4.6) of Step Length.
+ankle_separation_3d_std,variability,PKMAS,SD (4.5) of Step Length.
+foot_axis_angle_std,variability,Kaur 2021,SD (PKMAS 4.5) of Kaur's foot progression angle.
+foot_event_interval_left_std,variability,PKMAS,"SD (4.5) of Step Time, left."
+foot_event_interval_right_std,variability,PKMAS,"SD (4.5) of Step Time, right."
+pelvis_acceleration_std,variability,own,SD of the pelvis acceleration series. No counterpart in either source.
+pelvis_acceleration_std_log1p,variability,own,log1p of the row above.
+pelvis_speed_std,variability,own,SD of the pelvis velocity series.
+shoulder_line_rotation_speed_cv,variability,own,CV (PKMAS 4.6) applied to a shoulder-line signal neither source measures.
+step_event_interval_cv,variability,PKMAS,CV (4.6) of Step Time.
+step_event_interval_std,variability,PKMAS,SD (4.5) of Step Time.
+stride_length_cv,variability,Kaur 2021 + PKMAS,PKMAS Stride Length %CV (4.6). Kaur also reports stride-wise variability.
+stride_time_cv,variability,Kaur 2021 + PKMAS,PKMAS Stride Time %CV (4.6). Kaur also reports stride-wise variability.
+trunk_tilt_angle_std,variability,own,SD of the shoulder-to-hip line tilt. Pose only.
+foot_displacement_asymmetry_abs,symmetry,PKMAS,Unsigned asymmetry index (4.4) over the step-length series.
+foot_displacement_asymmetry_signed,symmetry,PKMAS,Asymmetry index (4.4) of the mean left and right step length. Compare Step Length Ratio L/R (4.3).
+foot_event_count_balance,symmetry,own,"Own normalisation of the two step counts, not a PKMAS ratio. Fully determined by those two counts."
+foot_event_interval_asymmetry_index,symmetry,PKMAS,Asymmetry index (4.4) of the mean left and right step time.
+hip_angle_velocity_asymmetry_index,symmetry,own,"PKMAS asymmetry-index formula (4.4) applied to hip angular velocity, which neither source measures."
+knee_angle_velocity_asymmetry_index,symmetry,own,"PKMAS asymmetry-index formula (4.4) applied to knee angular velocity, which neither source measures."
+shoulder_height_asymmetry,symmetry,own,Left and right shoulder height difference. Pose only.
+wrist_phase_locking_value,symmetry,own,Phase synchrony of the two wrist signals. Upper-limb coordination.
+wrist_swing_amplitude_diff_norm,symmetry,own,Left and right difference in wrist swing amplitude relative to the shoulder.
+wrist_swing_range_asymmetry,symmetry,own,Asymmetry-style normalisation of the left and right wrist swing range.
+nose_lateral_sway_std,postural,own,SD of the nose x-coordinate. Head sway is not observable on a walkway.
+nose_path_length_total,postural,own,Summed frame-to-frame nose displacement.
+nose_vertical_sway_std,postural,own,SD of the nose y-coordinate.
+pelvis_acceleration_mean,postural,own,Mean pelvis (hip midpoint) acceleration.
+pelvis_acceleration_mean_log1p,postural,own,log1p of the row above.
+pelvis_speed_mean,postural,own,Mean pelvis velocity magnitude.
+shoulder_line_rotation_speed_max,postural,own,Maximum of the same signal.
+shoulder_line_rotation_speed_mean,postural,own,"Angular velocity of the shoulder line, used as a trunk-orientation proxy."
+trunk_tilt_angle_mean,postural,own,Sagittal tilt of the shoulder-to-hip line.
+wrist_jerk_magnitude,postural,own,Jerk of the wrist coordinates. Upper-limb smoothness.
+wrist_tremor_band_power,postural,own,Power in the tremor band. Not produced by the current extractor.
+elbow_angle_velocity_left_mean,upper_limb,own,Mean left elbow angular velocity.
+elbow_angle_velocity_left_std,upper_limb,own,SD of the left elbow angular velocity.
+elbow_angle_velocity_right_mean,upper_limb,own,Mean right elbow angular velocity.
+elbow_angle_velocity_right_std,upper_limb,own,SD of the right elbow angular velocity.
+wrist_swing_range_left,upper_limb,own,Peak-to-peak left wrist swing relative to the shoulder. Arm swing is outside both sources.
+wrist_swing_range_right,upper_limb,own,Peak-to-peak right wrist swing relative to the shoulder.
+wrist_tremor_amplitude,upper_limb,own,"Wrist tremor amplitude, mean of left and right."
+wrist_tremor_coherence_lr,upper_limb,own,Spectral coherence between the two wrist signals.
+wrist_tremor_low_power_window_frac,upper_limb,own,Intermittency of wrist tremor.
+wrist_tremor_spectral_entropy,upper_limb,own,Regularity of the 3-7 Hz wrist band.
+hip_angle_velocity_left_mean,joint_kinematics,own,"Mean left hip angular velocity. Joint kinematics require pose, not a walkway."
+hip_angle_velocity_left_std,joint_kinematics,own,SD of the left hip angular velocity.
+hip_angle_velocity_right_mean,joint_kinematics,own,Mean right hip angular velocity.
+hip_angle_velocity_right_std,joint_kinematics,own,SD of the right hip angular velocity.
+knee_angle_velocity_left_mean,joint_kinematics,own,Mean left knee angular velocity.
+knee_angle_velocity_left_std,joint_kinematics,own,SD of the left knee angular velocity.
+knee_angle_velocity_right_mean,joint_kinematics,own,Mean right knee angular velocity.
+knee_angle_velocity_right_std,joint_kinematics,own,SD of the right knee angular velocity.
+landmark_gap_filled_ratio,acquisition_quality,own,Landmark-quality check. Not produced by the current extractor.
+landmark_large_gap_count,acquisition_quality,own,Landmark-quality check. Not produced by the current extractor.
+landmark_mean_nan_ratio,acquisition_quality,own,Landmark-quality check. Not produced by the current extractor.
